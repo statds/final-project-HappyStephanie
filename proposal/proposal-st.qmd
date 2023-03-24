@@ -24,15 +24,15 @@ I will utilize machine learning, specifically concentrating on Ridge regression 
 
 The dataset will be preprocessed to ensure that the data is clean and ready for analysis. This includes checking for missing values, dealing with outliers, building predicting variables, encoding the categorical variables, and standardizing or normalizing the continuous variables. The outcome variable adult attachment security will be built as a binary variable.
 
-2.	Model building and tuning:
+2. Model building and tuning:
 
 Ridge regression and Random Forest will be used to predict adult attachment security. In logistic regression, the logit function of the binary outcome is modeled as a linear combination of the predictors. Random Forest can handle both linear and non-linear relationships between the features and the target variable. To perform hyperparameter tuning, I will employ stratified nested cross-validation. 
 
-3.	Model evaluation:
+3. Model evaluation:
 
 The F1 score and AUC (Area Under the Curve) will be used to assess the performance of the models. F1 score is a metric that balances precision and recall, while AUC measures the overall performance of a model across different probability thresholds.
 
-4.	Feature importance and selection:
+4. Feature importance and selection:
 
 To determine which predictors are most important for predicting adult attachment security, I will estimate feature importance and carry out recursive feature elimination.
 

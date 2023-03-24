@@ -1,0 +1,14 @@
+---
+title: " Predicting Adult attachment for Young Adults: Identifying Key Predictors and Complex Patterns"
+format: html
+---
+
+# Method
+
+# Results
+
+# Discussion
+
+# Limitation and Future Direction
+
+# References
