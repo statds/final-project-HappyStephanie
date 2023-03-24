@@ -1,0 +1,44 @@
+---
+title: " Predicting Adult attachment for Young Adults: Identifying Key Predictors and Complex Patterns"
+format: html
+---
+# Introduction
+Attachment theory has been one of the most influential approaches to understanding romantic love and numerous studies provided strong evidence of the connection between adult attachment security and romantic relationship satisfaction (Hadden et al., 2014). Joel et al. (2020) identified adult attachment to be one of the main predictors for romantic relationship satisfaction. Relationship satisfaction is closely associated with physical health and mental health. Although relationship satisfaction is a most commonly used indicator of romantic relationship quality, it may significantly vary across different stages of a relationship. In contrast, attachment is often regarded as a relatively stable personal trait. Therefore, this project aims to advance our understanding of the main predictors for adult attachment security.
+
+Current studies related to adult attachment mostly include adult attachment as a predictor for other relational outcomes or test the association between adult attachment and one or two variables. From my knowledge, no study used machine learning to directly quantify and compare the predictive power of many variables that contribute to adult attachment security. 
+
+# Research Questions
+RQ1: How accurately can a comprehensive set of predictors (demographic information, relationship specific predictors, and family of origin experiences) predict adult attachment security?
+
+RQ2: What are the key predictors of adult attachment security?
+
+# Data
+In this project, I will utilize a dataset comprising diverse self-report measures gathered from 350 participants. These individuals, ranging from 18 to 29 years old, are undergraduate and graduate students who have experienced a romantic relationship. The data is collected between June 2019 to March 2020. 
+
+The predictors that would be investigated in this study includes demographic factors (e.g., gender, age, and SES), relationship factors (such as trust, self-efficacy, and conflict resolution), and family of origin experiences (such as parental support, parent- child relationship satisfaction, and parental interaction patterns).
+
+# Methodology
+I will utilize machine learning, specifically concentrating on Ridge regression (regularized logistic regression) and Random Forest, to analyze the dataset. The analysis will proceed as follows. Research question 1 is mainly answered by step 2 and 3. Research question 2 is mainly answered by step 4.
+1. Data preprocessing:
+
+The dataset will be preprocessed to ensure that the data is clean and ready for analysis. This includes checking for missing values, dealing with outliers, building predicting variables, encoding the categorical variables, and standardizing or normalizing the continuous variables. The outcome variable adult attachment security will be built as a binary variable.
+
+2.	Model building and tuning:
+
+Ridge regression and Random Forest will be used to predict adult attachment security. In logistic regression, the logit function of the binary outcome is modeled as a linear combination of the predictors. Random Forest can handle both linear and non-linear relationships between the features and the target variable. To perform hyperparameter tuning, I will employ stratified nested cross-validation. 
+
+3.	Model evaluation:
+
+The F1 score and AUC (Area Under the Curve) will be used to assess the performance of the models. F1 score is a metric that balances precision and recall, while AUC measures the overall performance of a model across different probability thresholds.
+
+4.	Feature importance and selection:
+
+To determine which predictors are most important for predicting adult attachment security, I will estimate feature importance and carry out recursive feature elimination.
+
+# Conclusion
+This study will provide a comprehensive understanding of the main predictors of adult attachment security and their relative importance. This knowledge can contribute to the broader field of attachment research. It can also help with fostering healthy relationships and developing educational courses, support services, and interventions that promote secure attachment. 
+
+# Reference
+Hadden, B. W., Smith, C. V., & Webster, G. D. (2014). Relationship duration moderates associations between attachment and relationship quality: Meta-analytic support for the temporal adult romantic attachment model. Personality and Social Psychology Review, 18(1), 42-58. https://doi.org/10.1177/1088868313501885
+Joel, S., Eastwick, P. W., Allison, C. J., Arriaga, X. B., Baker, Z. G., Bar-Kalifa, E., ... & Wolf, S. (2020). Machine learning uncovers the most robust self-report predictors of relationship quality across 43 longitudinal couples studies. Proceedings of the National Academy of Sciences, 117(32), 19061-19071.
+
