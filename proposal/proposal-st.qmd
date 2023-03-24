@@ -19,6 +19,7 @@ The predictors that would be investigated in this study includes demographic fac
 
 # Methodology
 I will utilize machine learning, specifically concentrating on Ridge regression (regularized logistic regression) and Random Forest, to analyze the dataset. The analysis will proceed as follows. Research question 1 is mainly answered by step 2 and 3. Research question 2 is mainly answered by step 4.
+
 1. Data preprocessing:
 
 The dataset will be preprocessed to ensure that the data is clean and ready for analysis. This includes checking for missing values, dealing with outliers, building predicting variables, encoding the categorical variables, and standardizing or normalizing the continuous variables. The outcome variable adult attachment security will be built as a binary variable.
@@ -40,5 +41,6 @@ This study will provide a comprehensive understanding of the main predictors of 
 
 # Reference
 Hadden, B. W., Smith, C. V., & Webster, G. D. (2014). Relationship duration moderates associations between attachment and relationship quality: Meta-analytic support for the temporal adult romantic attachment model. Personality and Social Psychology Review, 18(1), 42-58. https://doi.org/10.1177/1088868313501885
+
 Joel, S., Eastwick, P. W., Allison, C. J., Arriaga, X. B., Baker, Z. G., Bar-Kalifa, E., ... & Wolf, S. (2020). Machine learning uncovers the most robust self-report predictors of relationship quality across 43 longitudinal couples studies. Proceedings of the National Academy of Sciences, 117(32), 19061-19071.
 
