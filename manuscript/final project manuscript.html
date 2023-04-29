@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Predicting Adult attachment for Young Adults: Identifying Key Predictors and Complex Patterns</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="final project manuscript_files/libs/clipboard/clipboard.min.js"></script>
+<script src="final project manuscript_files/libs/quarto-html/quarto.js"></script>
+<script src="final project manuscript_files/libs/quarto-html/popper.min.js"></script>
+<script src="final project manuscript_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="final project manuscript_files/libs/quarto-html/anchor.min.js"></script>
+<link href="final project manuscript_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="final project manuscript_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="final project manuscript_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="final project manuscript_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="final project manuscript_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Predicting Adult attachment for Young Adults: Identifying Key Predictors and Complex Patterns</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="abstract" class="level1">
+<h1>Abstract</h1>
+<p>Attachment theory has been influential in understanding romantic love and relationship satisfaction. Adult attachment security is associated with physical health and mental health. This study aims to identify the key predictors of adult attachment security using machine learning techniques, specifically Ridge Regression and Random Forest, applied to a dataset of 357 American undergraduate and graduate students who have been in at least one romantic relationship. The results indicate that attachment of the partner, romantic relationship satisfaction, longest romantic relationship duration, father’s highest degree, expectation, socioeconomic status (SES), trust, efficacy, and conflict resolution with the partner are among the most important predictors of adult attachment security. The study advances our understanding of adult attachment and suggests future research directions and applications.</p>
+</section>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Attachment theory has been one of the most influential approaches to understanding romantic love and numerous studies provided strong evidence of the connection between adult attachment security and romantic relationship satisfaction (Hadden et al., 2014). Joel et al.&nbsp;(2020) identified adult attachment to be one of the main predictors for romantic relationship satisfaction. Relationship satisfaction is closely associated with physical health and mental health. Although relationship satisfaction is a most commonly used indicator of romantic relationship quality, it may significantly vary across different stages of a relationship. In contrast, attachment is often regarded as a relatively stable personal trait. Therefore, this project aims to advance our understanding of the main predictors for adult attachment security.</p>
+<p>Current studies related to adult attachment mostly include adult attachment as a predictor for other relational outcomes or test the association between adult attachment and one or two variables. From my knowledge, no study used machine learning to directly quantify and compare the predictive power of many variables that contribute to adult attachment security.</p>
+</section>
+<section id="research-questions" class="level1">
+<h1>Research Questions</h1>
+<p>Research Question 1: How accurately and effectively can a comprehensive set of predictors (demographic information, relationship specific predictors, and family of origin experiences) predict adult attachment security?</p>
+<p>Research Question 2: What are the key predictors of adult attachment security?</p>
+</section>
+<section id="methods" class="level1">
+<h1>Methods</h1>
+<section id="participants" class="level2">
+<h2 class="anchored" data-anchor-id="participants">Participants</h2>
+<p>Participants included two groups of undergraduate and graduate students between the ages of 18 and 29 years who had been in at least one romantic relationship (casual or serious). Participants were recruited by flyers on college campuses and by postings on social media. These flyers and postings were access to the students in the University of Connecticut in the U.S. All data collection occurred online using Qualtrics and respondents had the option to enter a lottery for an award for their participation.</p>
+<p>Responses were collected mostly between July 2019 to March 2020. After deleting the cases which did not meet the recruitment criteria (such as having never been in a romantic relationship) or did not fill anything, 485 American responses were left. However, among these, the variables representing family of origin experiences contain a large proportion of missing data. After deleting the cases in which the value of parent-child relationship satisfaction is missing, 357 American responses are left, which are the sample size for this study.</p>
+<p>In this sample, approximately 76.3% were female and about 63.7% identified as European American. The average age was 21.22 years. Relationship duration averages for their current/most recent romantic relationship was 22.85 months. 74.9% came from middle or higher class.</p>
+</section>
+<section id="measures" class="level2">
+<h2 class="anchored" data-anchor-id="measures">Measures</h2>
+<p>The predictors investigated in this study encompass a wide range of factors, including demographic information, relationship dynamics, and family of origin experiences. In total, there are 62 predictors.</p>
+<p>Demographic variables considered include gender, sexual orientation, ethnicity, current position, socioeconomic status (SES), and age.</p>
+<p>Relationship factors include participants’ experiences with serious and casual romantic relationships, the length of their longest relationship, their current relationship status, and various aspects of their current (or most recent) relationships, such as their partner’s age and level of commitment. Additional relationship factors include relationship satisfaction scores (RAS and RSS), love for their partner, expectations, trust, conflict resolution with their partner, and self-efficacy. Participants’ attachment styles were assessed, as well as their partners’ attachment dimensions, including secure, fearful, preoccupied, and dismissing attachment.</p>
+<p>Family of origin experiences were also examined, such as the marital status of the participants’ parents, the conflict resolution patterns between parents, the level of love and conflict between parents, perceived threat, self-blame, coping efficacy, triangulation, and parental interaction patterns. Parental support and relationships were also considered, such as the level of support in talking, helping, and treating the participants as individuals, as well as the positive and negative aspects of the relationships with both mother and father. Parent-child satisfaction was assessed, along with the highest degree obtained by both mother and father.</p>
+<p>Some of the predictors used in this study are based on single-item measures, which capture participants’ responses to specific questions or statements. For example, the predictor “expectation” is assessed by asking participants to rate their agreement with the statement, “In general, I believe my current romantic relationship will keep on being satisfying (or my future romantic relationship will be satisfying).” Similarly, the predictor “longest romantic duration” is assessed by asking participants to report the length of their longest romantic relationship in months.</p>
+<p>In contrast, other predictors are based on multi-item scales that assess various aspects of a particular concept or construct. One such example is the Relationship Assessment Scale (RAS, Hendrick &amp; Hendrick, 1998), which comprises several items designed to capture participants’ overall satisfaction with their romantic relationships. By including multiple items, this scale aims to provide a more comprehensive assessment of relationship satisfaction by considering different dimensions and experiences related to the construct. Incorporating both single-item measures and multi-item scales in the study allows for a more nuanced and in-depth understanding of the factors influencing adult attachment styles. Single-item measures provide a snapshot of specific aspects of participants’ experiences, while multi-item scales offer a broader view of complex constructs by taking into account various dimensions and experiences related to the concept being measured.</p>
+<p>The Relationships Questionnaire (Bartholomew &amp; Horowitz, 1991) is employed in this study to assess participants’ attachment styles in romantic relationships and to examine their levels across different attachment dimensions. This widely used and well-established instrument boasts high test-retest reliability and stability (Scharfe &amp; Bartholomew, 1994). It comprises four concise paragraphs, each describing one of the four primary attachment styles: Secure, Preoccupied, Fearful, and Dismissing. One of the four descriptions is: “It is easy for me to become emotionally close to others. I am comfortable depending on them and having them depend on me. I don’t worry about being alone or having others not accept me.” Participants are asked to select the adult attachment description that most accurately represents their experiences and to rank themselves on a 7-point Likert scale concerning each description, ranging from 1 (strongly disagree) to 4 (neutral/mixed) and 7 (strongly agree).</p>
+<p>In this study, both the categorical and dimensional aspects of the questionnaire are utilized. For the categorical part of the Relationships Questionnaire, the outcome binary variable is created as either secure or insecure attachment. This categorical distinction helps to simplify and clarify the analysis of attachment styles. The dimensional part of the questionnaire is employed to construct relationship factors, which are then used to examine the various elements that contribute to an individual’s attachment security or insecurity. This dual approach enables a comprehensive understanding of the key predictors and underlying dimensions of attachment styles in romantic relationships.</p>
+</section>
+</section>
+<section id="data-analysis" class="level1">
+<h1>Data Analysis</h1>
+<p>The data analysis process involved several stages, starting with data preparation. This stage ensured that the data was suitable for machine learning algorithms. Two primary machine learning algorithms, Ridge Regression and Random Forest, were employed to address research questions related to accurately predicting adult attachment security and identifying key predictors. Accuracy and F1 score were used for model evaluation. Research question 2 is answered by estimating feature importance and conducting recursive feature elimination.</p>
+<section id="data-preparation" class="level2">
+<h2 class="anchored" data-anchor-id="data-preparation">Data Preparation</h2>
+<p>In preparing the data for analysis, several steps are undertaken, including dealing with missing values (by imputing the mean), constructing predictor variables, encoding categorical and ordinal variables, and standardizing continuous variables. These steps ensure that the data is well-suited for the subsequent machine learning algorithms and contributes to more accurate predictions.</p>
+</section>
+<section id="research-question-1-how-accurately-and-effectively-can-a-comprehensive-set-of-predictors-predict-adult-attachment-security" class="level2">
+<h2 class="anchored" data-anchor-id="research-question-1-how-accurately-and-effectively-can-a-comprehensive-set-of-predictors-predict-adult-attachment-security">Research Question 1: How accurately and effectively can a comprehensive set of predictors predict adult attachment security?</h2>
+<p>To analyze the dataset, two main machine learning algorithms are employed: Ridge Regression (regularized logistic regression) and Random Forest. These algorithms are chosen due to their respective advantages in dealing with multicollinearity and handling both linear and non-linear relationships.</p>
+<section id="algorithm-1-regularized-logistic-regression-ridge" class="level3">
+<h3 class="anchored" data-anchor-id="algorithm-1-regularized-logistic-regression-ridge">Algorithm 1: Regularized Logistic Regression (Ridge)</h3>
+<p>Ridge Regression is advantageous because it is better equipped to handle multicollinearity, a common issue in datasets with numerous predictors. By incorporating a regularization term, Ridge Regression reduces the impact of highly correlated variables on the model, ultimately leading to improved predictions.</p>
+</section>
+<section id="algorithm-2-random-forest" class="level3">
+<h3 class="anchored" data-anchor-id="algorithm-2-random-forest">Algorithm 2: Random Forest</h3>
+<p>Random Forest is a versatile algorithm that can effectively manage both linear and non-linear relationships between features and the target variable. It does so by constructing a multitude of decision trees and aggregating their results, which improves the model’s overall predictive accuracy.</p>
+</section>
+<section id="model-building-and-tuning" class="level3">
+<h3 class="anchored" data-anchor-id="model-building-and-tuning">Model Building and Tuning:</h3>
+<p>Initially, stratified nested cross-validation was planned to be used in the model tuning process. However, upon discovering that the outcome variable is not imbalanced, standard cross-validation was chosen instead. Despite attempts to optimize the model using cross-validation, it did not yield the desired results, leading to a reliance on the default settings for the algorithms.</p>
+</section>
+<section id="model-evaluation-accuracy-and-f1-score" class="level3">
+<h3 class="anchored" data-anchor-id="model-evaluation-accuracy-and-f1-score">Model Evaluation: Accuracy and F1 Score</h3>
+<p>To evaluate the performance of the Ridge Regression and Random Forest models, both accuracy and F1 score metrics are employed. These metrics provide complementary insights into the model’s effectiveness, allowing for a thorough understanding of their performance in predicting adult attachment security.</p>
+<p>Accuracy is a straightforward metric that calculates the proportion of correctly classified instances out of the total number of instances. It offers a clear picture of the model’s overall performance in classifying instances. However, accuracy can sometimes be misleading, especially when dealing with imbalanced datasets, as it may not accurately represent the model’s ability to identify the minority class.</p>
+<p>The F1 score, on the other hand, provides a balanced measure of the model’s performance by considering both precision and recall. Precision is a measure of a model’s ability to correctly identify true positive instances, while recall assesses its capability to avoid false negatives. The F1 score is the harmonic mean of precision and recall, making it particularly suitable for assessing classification models, especially when dealing with imbalanced datasets or when both false positives and false negatives are of concern.</p>
+</section>
+</section>
+<section id="research-question-2-what-are-the-key-predictors-of-adult-attachment-security" class="level2">
+<h2 class="anchored" data-anchor-id="research-question-2-what-are-the-key-predictors-of-adult-attachment-security">Research Question 2: What are the key predictors of adult attachment security?</h2>
+<p>To identify the most critical predictors of adult attachment security, two techniques are utilized: estimating feature importance and conducting recursive feature elimination. By employing these methods, the study aims to uncover the most influential factors that contribute to attachment security and inform future research on the topic.</p>
+<section id="estimating-feature-importance" class="level3">
+<h3 class="anchored" data-anchor-id="estimating-feature-importance">Estimating Feature Importance</h3>
+<p>Estimating feature importance involves evaluating the relative contribution of each predictor variable to the performance of the model.</p>
+<p>For Ridge Regression, feature importance is typically assessed by examining the coefficients assigned to each predictor variable. Larger absolute values of coefficients indicate a stronger influence on the model’s predictions, while smaller absolute values suggest a weaker effect. For Random Forest, feature importance is determined by calculating the average decrease in impurity (e.g., Gini impurity or information gain) that results from splitting the data based on a particular feature across all decision trees in the forest. A higher average decrease in impurity indicates a more important predictor, as it contributes more to the model’s ability to distinguish between secure and insecure attachment styles.</p>
+</section>
+<section id="recursive-feature-elimination" class="level3">
+<h3 class="anchored" data-anchor-id="recursive-feature-elimination">Recursive Feature Elimination</h3>
+<p>Recursive feature elimination (RFE) is a technique used to identify the most relevant features for a given model by iteratively training the model with a reduced set of predictor variables. Initially, the model is trained with all available predictor variables. Then, the least important feature, as determined by the model’s feature importance metric, is removed, and the model is retrained. This process is repeated until a specified number of features remain or a stopping criterion is met. In this study, it repeated until 20 features remain.</p>
+<p>For Ridge Regression, RFE can be performed by iteratively removing the predictor variable with the smallest absolute coefficient value and retraining the model. In the case of Random Forest, the feature with the lowest average decrease in impurity is removed at each step.</p>
+</section>
+</section>
+</section>
+<section id="results" class="level1">
+<h1>Results</h1>
+<section id="how-accurately-and-effectively-can-a-comprehensive-set-of-predictors-demographic-information-relationship-specific-predictors-and-family-of-origin-experiences-predict-adult-attachment-security" class="level2">
+<h2 class="anchored" data-anchor-id="how-accurately-and-effectively-can-a-comprehensive-set-of-predictors-demographic-information-relationship-specific-predictors-and-family-of-origin-experiences-predict-adult-attachment-security">How accurately and effectively can a comprehensive set of predictors (demographic information, relationship specific predictors, and family of origin experiences) predict adult attachment security?</h2>
+<p>Both Ridge Regression and Random Forest models demonstrated relatively high accuracy and effectiveness in predicting adult attachment security. These results suggest that the selected predictors, which encompass demographic information, relationship-specific factors, and family of origin experiences, contribute significantly to the prediction of adult attachment security. It is worth noting that the sample in this study is not imbalanced; therefore, the accuracy metric is meaningful and relevant in assessing the performance of the models.</p>
+<p>The Ridge Regression model yielded an accuracy of 87.5%, indicating that the model correctly classified 87.5% of the instances. Additionally, the F1 score of 0.88 suggests that the model performed well in terms of both precision and recall, highlighting its effectiveness in identifying secure and insecure attachment styles.</p>
+<p>The Random Forest model achieved an even higher accuracy of 90.28%, outperforming the Ridge Regression model. This result indicates that the Random Forest model was able to correctly classify 90.28% of the instances. Despite having the same F1 score as the Ridge Regression model (0.8831), the Random Forest model demonstrates superior overall performance due to its higher accuracy.</p>
+<p>In summary, both models performed well in predicting adult attachment security using the comprehensive set of predictors. While the Random Forest model exhibited slightly better accuracy, both models demonstrated high effectiveness, as evidenced by their F1 scores.</p>
+</section>
+<section id="what-are-the-key-predictors-of-adult-attachment-security" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-the-key-predictors-of-adult-attachment-security">What are the key predictors of adult attachment security?</h2>
+<p>In order to identify the key predictors of adult attachment security, four sets of top 20 important predictors were derived using combinations of two feature selection techniques (estimating feature importance and conducting recursive feature elimination) and two machine learning algorithms (Ridge Regression and Random Forest): (1) ridge regression with feature importance estimation, (2) ridge regression with recursive feature elimination (RFE), (3) random forest with feature importance estimation, and (4) random forest with recursive feature elimination (RFE). The table below presents the results from each method along with a description of each predictor. In the table, the text to the left of the colon represents the predictor’s abbreviation, while the numerical value to the right of the colon indicates the predictor’s importance. For Ridge Regression-related models, the number represents the coefficient of the predictor. In the case of Random Forest-related models, the number signifies the reduction in impurity achieved by the predictor.</p>
+<p>Rank Ridge Predictor Description Ridge &amp; RFE Predictor Description Random Forest Predictor Description Random Forest &amp; RFE Predictor Description 1 r28_1: 1.79 attachment of partner r28_1: 1.79 attachment of partner r19: 0.12 secure r19: 0.14 secure 2 r20: -1.45 fearful r20: -1.45 fearful r20: 0.10 fearful r20: 0.13 fearful 3 r19: 1.39 secure r19: 1.39 secure r12: 0.05 RAS r12: 0.08 RAS 4 f26: 1.20 father highest degree f26: 1.20 father highest degree r16: 0.04 trust r28_1: 0.07 attachment of partner 5 r15: -1.14 expectation r15: -1.14 expectation r22: 0.04 dismissing r16: 0.06 trust 6 r22: -1.04 dismissing r22: -1.04 dismissing r28_1: 0.04 attachment of partner r18: 0.06 efficacy 7 r12: 0.89 RAS r12: 0.89 RAS r14: 0.03 RSS r17: 0.05 conflict resolution with partner 8 d5_poly_1: -0.82 SES d5_poly_1: -0.82 SES r17: 0.03 conflict resolution with partner r22: 0.05 dismissing 9 r3: 0.80 longest RR r3: 0.80 longest RR r18: 0.03 efficacy r14: 0.04 RSS 10 e1: -0.77 emotion e1: -0.77 emotion r21: 0.03 preoccupied r3: 0.04 longest RR 11 r4: -0.71 RR status r4: -0.71 RR status r3: 0.03 longest RR r21: 0.04 preoccupied 12 f20: 0.70 parental support father f20: 0.70 parental support father r7: 0.02 RR length r7: 0.03 RR length 13 d1_2: 0.66 gender d1_2: 0.66 gender f24: 0.01 parent-child satisfaction f21: 0.03 PAQ mother positive 14 d1_1: -0.60 gender d1_1: -0.60 gender r25: 0.01 fearful of partner f24: 0.03 parent-child satisfaction 15 d5_poly_3: -0.59 SES d3_4: -0.57 ethnicity: Asian r9: 0.01 commitment f22: 0.03 PAQ mother negative 16 d3_4: -0.57 ethnicity: Asian d3_5: -0.53 ethnicity: multiracial f21: 0.01 PAQ mother positive f20: 0.03 parental support father 17 f11: 0.53 lack problem-solving skills d2_transformed: -0.46 sexual orientation r13: 0.01 love of partner f18: 0.02 PAQ father positive 18 d3_5: -0.53 ethnicity: multiracial r26: 0.46 preoccupied of partner r5: 0.01 age of partner f2: 0.02 conflict resolution between parents 19 f14: -0.48 satisfaction (about their marriage) r21: -0.43 preoccupied f18: 0.01 PAQ father positive r13: 0.02 love of partner 20 d3_2: 0.47 ethnicity r17: 0.24 conflict resolution with partner f23: 0.01 parental support mother r26: 0.02 preoccupied of partner</p>
+<p>In this study, the goal was to identify the key predictors of adult attachment security based on four different models: Ridge Regression, Ridge Regression with Recursive Feature Elimination (RFE), Random Forest, and Random Forest with RFE. The dimensions of the attachment measure, secure, fearful, preoccupied, and dismissing, were not interpreted as key predictors. Excluding these predictors, three predictors appeared in all four sets: attachment of the partner, romantic relationship satisfaction (RAS), and longest romantic relationship duration.</p>
+<p>Additionally, three other top predictors from each set were selected, resulting in a total of six predictors: father’s highest degree, expectation, socioeconomic status (SES), trust, efficacy, and conflict resolution with the partner. The romantic relationship satisfaction scale (RRS) was not included since RAS already measures romantic relationship satisfaction. Each set ends up with six key predictors. The F1 score was tested with the top six predictors in each method, and the results show satisfactory prediction performance for all models: Ridge predictors achieved an F1 score of 0.77, Ridge &amp; RFE predictors scored 0.77, Random Forest predictors reached 0.76, and Random Forest &amp; RFE predictors obtained 0.76. Therefore, these predictors can be confidently considered as key predictors in understanding adult attachment security.</p>
+<p>Another interesting observation in this study is the difference in the nature of top predictors between Ridge Regression-related models and Random Forest models. In Ridge Regression-related models, both continuous and categorical predictors appear to be important, whereas in Random Forest models, the top predictors mainly consist of continuous variables.</p>
+</section>
+</section>
+<section id="discussion" class="level1">
+<h1>Discussion</h1>
+<p>Adult attachment plays a crucial role in shaping individuals’ interpersonal relationships and emotional well-being. This study demonstrates that machine learning can accurately predict adult attachment styles based on various predictors.</p>
+<p>The common predictors found in this study, including attachment of the partner, romantic relationship satisfaction (RAS), and longest romantic relationship duration, suggest that individuals with secure attachment are more likely to have secure partners, experience greater stability in their relationships, and report higher levels of romantic relationship satisfaction. These findings are consistent with previous research and further emphasize the importance of studying adult attachment.</p>
+<p>The additional six key predictors identified in this study, including father’s highest degree, expectation, socioeconomic status (SES), trust, efficacy, and conflict resolution with the partner, provide valuable insights for future research and intervention programs. Specifically, interventions could be designed to target improvement in expectation, trust, efficacy, and conflict resolution skills in romantic relationships. When designing such programs, consideration should also be given to individuals with different SES backgrounds. An interesting finding related to the role of fathers emerged in this study. Father’s highest degree may be associated with SES, but parental support from fathers also appeared in three of the top 20 predictors sets. Exploring the positive influence of fathers on their children’s attachment styles could be a promising research direction.</p>
+<p>The findings of this study should be interpreted with caution due to several limitations. First, the participants were primarily students, which may limit the generalizability of the findings to other populations. Second, the data is correlational, which precludes making causal inferences. This study is not a long-term investigation or an experimental design that would allow for determining causality. Third, this is a retrospective study in which the data analyzed relies on participants’ memories, which may be biased by their current cognitive or emotional states and might not accurately represent past events. Fourth, the self-report nature of the responses might be influenced by participants’ understanding of specific concepts or be subject to social desirability bias. Finally, this study includes only a subset of possible predictors, and future research could benefit from incorporating a broader range of predictors using alternative methods.</p>
+<p>Despite these limitations, the study provides valuable insights into the key predictors of adult attachment and highlights the potential benefits of machine learning in understanding attachment styles, which could inform both theoretical understanding and practical interventions in the field of attachment research. Further research could address these limitations and expand upon the current findings, ultimately contributing to a more comprehensive understanding of adult attachment.</p>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<p>Bartholomew, K., &amp; Horowitz, L. M. (1991). Attachment styles among young adults: A test of a four category model. Journal of Personality and Social Psychology, 61(2), 226-244.</p>
+<p>Hadden, B. W., Smith, C. V., &amp; Webster, G. D. (2014). Relationship duration moderates associations between attachment and relationship quality: Meta-analytic support for the temporal adult romantic attachment model. Personality and Social Psychology Review, 18(1), 42-58. https://doi.org/10.1177/1088868313501885</p>
+<p>Hendrick, S. S., Dicke, A., &amp; Hendrick, C. (1998). The Relationship Assessment Scale. Journal of Social and Personal Relationships, 15(1), 137–142. https://doi.org/10.1177/0265407598151009</p>
+<p>Joel, S., Eastwick, P. W., Allison, C. J., Arriaga, X. B., Baker, Z. G., Bar-Kalifa, E., … &amp; Wolf, S. (2020). Machine learning uncovers the most robust self-report predictors of relationship quality across 43 longitudinal couples studies. Proceedings of the National Academy of Sciences, 117(32), 19061-19071.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
