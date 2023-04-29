@@ -1,6 +1,8 @@
 ---
 title: " Predicting Adult attachment for Young Adults: Identifying Key Predictors and Complex Patterns"
-format: html
+format: 
+  html:
+    embed-resources: true
 ---
 
 
@@ -96,27 +98,28 @@ In summary, both models performed well in predicting adult attachment security u
 ## What are the key predictors of adult attachment security?
 In order to identify the key predictors of adult attachment security, four sets of top 20 important predictors were derived using combinations of two feature selection techniques (estimating feature importance and conducting recursive feature elimination) and two machine learning algorithms (Ridge Regression and Random Forest): (1) ridge regression with feature importance estimation, (2) ridge regression with recursive feature elimination (RFE), (3) random forest with feature importance estimation, and (4) random forest with recursive feature elimination (RFE). The table below presents the results from each method along with a description of each predictor. In the table, the text to the left of the colon represents the predictor's abbreviation, while the numerical value to the right of the colon indicates the predictor's importance. For Ridge Regression-related models, the number represents the coefficient of the predictor. In the case of Random Forest-related models, the number signifies the reduction in impurity achieved by the predictor.
 
-Rank	Ridge	Predictor Description	Ridge & RFE	Predictor Description	Random Forest	Predictor Description	Random Forest & RFE	Predictor Description
-1	r28_1: 1.79	attachment of partner	r28_1: 1.79	attachment of partner	r19: 0.12	secure	r19: 0.14	secure
-2	r20: -1.45	fearful	r20: -1.45	fearful	r20: 0.10	fearful	r20: 0.13	fearful
-3	r19: 1.39	secure	r19: 1.39	secure	r12: 0.05	RAS	r12: 0.08	RAS
-4	f26: 1.20	father highest degree	f26: 1.20	father highest degree	r16: 0.04	trust	r28_1: 0.07	attachment of partner
-5	r15: -1.14	expectation	r15: -1.14	expectation	r22: 0.04	dismissing	r16: 0.06	trust
-6	r22: -1.04	dismissing	r22: -1.04	dismissing	r28_1: 0.04	attachment of partner	r18: 0.06	efficacy
-7	r12: 0.89	RAS	r12: 0.89	RAS	r14: 0.03	RSS	r17: 0.05	conflict resolution with partner
-8	d5_poly_1: -0.82	SES	d5_poly_1: -0.82	SES	r17: 0.03	conflict resolution with partner	r22: 0.05	dismissing
-9	r3: 0.80	longest RR	r3: 0.80	longest RR	r18: 0.03	efficacy	r14: 0.04	RSS
-10	e1: -0.77	emotion	e1: -0.77	emotion	r21: 0.03	preoccupied	r3: 0.04	longest RR
-11	r4: -0.71	RR status	r4: -0.71	RR status	r3: 0.03	longest RR	r21: 0.04	preoccupied
-12	f20: 0.70	parental support father	f20: 0.70	parental support father	r7: 0.02	RR length	r7: 0.03	RR length
-13	d1_2: 0.66	gender	d1_2: 0.66	gender	f24: 0.01	parent-child satisfaction	f21: 0.03	PAQ mother positive
-14	d1_1: -0.60	gender	d1_1: -0.60	gender	r25: 0.01	fearful of partner	f24: 0.03	parent-child satisfaction
-15	d5_poly_3: -0.59	SES	d3_4: -0.57	ethnicity: Asian	r9: 0.01	commitment	f22: 0.03	PAQ mother negative
-16	d3_4: -0.57	ethnicity: Asian	d3_5: -0.53	ethnicity: multiracial	f21: 0.01	PAQ mother positive	f20: 0.03	 parental support father
-17	f11: 0.53	lack problem-solving skills	d2_transformed: -0.46	sexual orientation	r13: 0.01	love of partner	f18: 0.02	PAQ father positive
-18	d3_5: -0.53	ethnicity: multiracial	r26: 0.46	preoccupied of partner	r5: 0.01	age of partner	f2: 0.02	conflict resolution between parents
-19	f14: -0.48	satisfaction (about their marriage)	r21: -0.43	preoccupied	f18: 0.01	PAQ father positive	r13: 0.02	love of partner
-20	d3_2: 0.47	ethnicity	r17: 0.24	conflict resolution with partner	f23: 0.01	parental support mother	r26: 0.02	preoccupied of partner
+| Rank | Ridge          | Predictor Description           | Ridge & RFE    | Predictor Description           | Random Forest | Predictor Description           | Random Forest & RFE | Predictor Description            |
+|------|----------------|---------------------------------|---------------|---------------------------------|---------------|---------------------------------|--------------------|----------------------------------|
+| 1    | r28_1: 1.79    | attachment of partner           | r28_1: 1.79    | attachment of partner           | r19: 0.12      | secure                           | r19: 0.14           | secure                            |
+| 2    | r20: -1.45     | fearful                         | r20: -1.45     | fearful                         | r20: 0.10      | fearful                         | r20: 0.13           | fearful                          |
+| 3    | r19: 1.39      | secure                          | r19: 1.39      | secure                          | r12: 0.05      | RAS                              | r12: 0.08           | RAS                               |
+| 4    | f26: 1.20      | father highest degree           | f26: 1.20      | father highest degree           | r16: 0.04      | trust                            | r28_1: 0.07         | attachment of partner            |
+| 5    | r15: -1.14     | expectation                     | r15: -1.14     | expectation                     | r22: 0.04      | dismissing                       | r16: 0.06           | trust                             |
+| 6    | r22: -1.04     | dismissing                      | r22: -1.04     | dismissing                      | r28_1: 0.04    | attachment of partner           | r18: 0.06           | efficacy                          |
+| 7    | r12: 0.89      | RAS                             | r12: 0.89      | RAS                             | r14: 0.03      | RSS                              | r17: 0.05           | conflict resolution with partner |
+| 8    | d5_poly_1: -0.82 | SES                           | d5_poly_1: -0.82 | SES                           | r17: 0.03      | conflict resolution with partner | r22: 0.05           | dismissing                        |
+| 9    | r3: 0.80       | longest RR                      | r3: 0.80       | longest RR                      | r18: 0.03      | efficacy                         | r14: 0.04           | RSS                               |
+| 10   | e1: -0.77      | emotion                         | e1: -0.77      | emotion                         | r21: 0.03      | preoccupied                      | r3: 0.04            | longest RR                        |
+| 11   | r4: -0.71      | RR status                       | r4: -0.71      | RR status                       | r3: 0.03       | longest RR                       | r21: 0.04           | preoccupied                       |
+| 12   | f20: 0.70      | parental support father         | f20: 0.70      | parental support father         | r7: 0.02       | RR length                        | r7: 0.03            | RR length                         |
+| 13   | d1_2: 0.66     | gender                          | d1_2: 0.66      | gender                          | f24: 0.01      | parent-child satisfaction        | f21: 0.03           | PAQ mother positive               |
+| 14   | d1_1: -0.60    | gender                          | d1_1: -0.60     | gender                          | r25: 0.01      | fearful of partner               | f24: 0.03           | parent-child satisfaction         |
+| 15   | d5_poly_3: -0.59 | SES                           | d3_4: -0.57     | ethnicity: Asian                | r9: 0.01       | commitment                       | f22: 0.03           | PAQ mother negative               |
+| 16   | d3_4: -0.57    | ethnicity: Asian                | d3_5: -0.53     | ethnicity: multiracial          | f21: 0.01      | PAQ mother positive              | f20: 0.03           | parental support father           |
+| 17   | f11: 0.53      | lack problem-solving skills     | d2_transformed: -0.46 | sexual orientation      | r13: 0.01      | love of partner                  | f18: 0.02           | PAQ father positive               |
+| 18   | d3_5: -0.53    | ethnicity: multiracial          | r26: 0.46      | preoccupied of partner          | r5: 0.01       | age of partner                   | f2: 0.02            | conflict resolution between parents |
+| 19   | f14: -0.48     | satisfaction (about their marriage) | r21: -0.43   | preoccupied                     | f18: 0.01      | PAQ father positive              | r13: 0.02           | love of partner                   |
+| 20   | d3_2: 0.47     | ethnicity                       | r17: 0.24      | conflict resolution with partner | f23: 0.01      | parental support mother          | r26: 0.02           | preoccupied of partner            |
 
 
 In this study, the goal was to identify the key predictors of adult attachment security based on four different models: Ridge Regression, Ridge Regression with Recursive Feature Elimination (RFE), Random Forest, and Random Forest with RFE. The dimensions of the attachment measure, secure, fearful, preoccupied, and dismissing, were not interpreted as key predictors. Excluding these predictors, three predictors appeared in all four sets: attachment of the partner, romantic relationship satisfaction (RAS), and longest romantic relationship duration. 
